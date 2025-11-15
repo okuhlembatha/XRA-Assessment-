@@ -1,13 +1,12 @@
-# Time Service
+# FLASK Python Application
 
-This is a simple HTTP service using **Flask** that returns the server's current date and time.
+This is a project containing a simple Python web service. When you access the service using the web browser, the service returns the current local date and time. 
 
-## Requirements
+# How to run the service
+1. You first need to install Python Dependencies
 
-- Python 3.7+
-- Flask
+You can install Flask using pip: pip install Flask
 
-You can install Flask using pip:
+2. Start the service by using: python time_service.py
 
-```bash
-pip install Flask
+Open your browser and visit http://localhost:8080/time 
