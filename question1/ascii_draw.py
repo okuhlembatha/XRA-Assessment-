@@ -31,7 +31,7 @@ def main():
               print ("Error: Please enetr exaclty one character")
 
     def draw_rectangle (width,height,char):
-
+        """"Draw a rectangle with the given dimensions using the specified character"""
         print (char*width)
 
         for i in range(height - 2):

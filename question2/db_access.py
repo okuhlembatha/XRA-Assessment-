@@ -3,7 +3,7 @@ import sys
 import psycopg2
 from psycopg2 import sql
 
-# Get environment variables
+""""Getting environment variables"""
 def get_env_variable(var_name, required=True, default=None):
     value = os.environ.get(var_name, default)
     if required and (value is None or value == ""):
@@ -12,8 +12,7 @@ def get_env_variable(var_name, required=True, default=None):
         sys.exit(1)
     return value
     
-
-# Build database config
+"""Building the database configuration"""
 def get_database_connection():
     return {
         "host": get_env_variable("DB_HOST"),
@@ -23,7 +22,7 @@ def get_database_connection():
         "password": get_env_variable("DB_PASSWORD")
     }
 
-# Connect to PostgreSQL
+"""Connecting to the PostgreSQL"""
 def connect_to_database():
     try:
         db_config = get_database_connection()
@@ -34,7 +33,7 @@ def connect_to_database():
         print(f"Database connection failed: {e}")
         sys.exit(1)
 
-# Create table if it does not exist
+"""Creating the table if it does not exist"""
 def create_table(connection):
     create_table_query = """
     CREATE TABLE IF NOT EXISTS employees (
@@ -54,7 +53,7 @@ def create_table(connection):
         print(f"Failed to create table: {e}")
         sys.exit(1)
 
-# Insert new employee
+"""Inserting new employee"""
 def insert_employee(connection, name, department):
     try:
         with connection.cursor() as cursor:
@@ -68,7 +67,7 @@ def insert_employee(connection, name, department):
         connection.rollback()
         print(f"Failed to insert new employee: {e}")
 
-# Print all rows for employees
+"""Printing all the rows for employee"""
 def print_all_employees(connection):
     try:
         with connection.cursor() as cursor:

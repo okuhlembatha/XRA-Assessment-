@@ -12,5 +12,5 @@ def get_time():
     })
 
 if __name__ == "__main__":
-    # Run the Flask app on port 8080
+    """Run the Flask app on port 8080"""
     app.run(host="0.0.0.0", port=8080)
